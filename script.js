@@ -205,42 +205,59 @@ class AIPromptApp {
         };
         reader.readAsDataURL(file);
         
-        // Upload ke Athars via Server
+        // ✅ UPLOAD LANGSUNG KE ATHARS (TANPA SERVER)
         this.uploadToAthars(file);
         
         this.generateBtn.disabled = false;
-        this.showStatus(`✅ Gambar "${this.imageName}" berhasil diunggah!`, 'success');
     }
     
-    // ===== UPLOAD TO ATHARS VIA SERVER =====
+    // ===== UPLOAD TO ATHARS.SPACE (LANGSUNG DARI BROWSER) =====
     async uploadToAthars(file) {
         try {
             const formData = new FormData();
-            formData.append('photo', file);
-            
-            const response = await fetch(`${this.serverUrl}/api/upload-athars`, {
+            formData.append('file', file, file.name);
+
+            const options = {
                 method: 'POST',
+                headers: {
+                    'User-Agent': 'Mozilla/5.0 (Linux; Android 10; K) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/141.0.0.0 Mobile Safari/537.36',
+                    'Accept-Encoding': 'gzip, deflate, br, zstd',
+                    'sec-ch-ua-platform': '"Android"',
+                    'accept-language': 'en-ID,en;q=0.9',
+                    'sec-ch-ua': '"Chromium";v="141", "Not?A_Brand";v="8"',
+                    'sec-ch-ua-mobile': '?1',
+                    'origin': 'https://athars.space',
+                    'referer': 'https://athars.space/'
+                },
                 body: formData
-            });
-            
-            const result = await response.json();
-            
-            if (result.success && result.imageUrl) {
-                this.imageUrl = result.imageUrl;
+            };
+
+            console.log('📤 Uploading to Athars:', file.name);
+
+            const response = await fetch('https://athars.space/upload.php', options);
+            const result = await response.text();
+
+            console.log('📥 Response:', result);
+
+            // Parse URL dari response
+            const urlMatch = result.match(/https:\/\/athars\.space\/uploads\/[a-f0-9]+\.(jpg|jpeg|png|gif|webp)/i);
+            if (urlMatch) {
+                this.imageUrl = urlMatch[0];
                 this.fileUrl.textContent = this.imageUrl;
                 this.lastUploadTime = Date.now();
                 localStorage.setItem('lastUploadTime', String(Date.now()));
                 console.log('✅ Upload berhasil:', this.imageUrl);
+                this.showStatus('✅ Gambar berhasil diupload!', 'success');
             } else {
-                throw new Error(result.error || 'Gagal upload ke server');
+                throw new Error('Gagal mendapatkan URL dari response');
             }
         } catch (error) {
             console.error('❌ Upload error:', error);
             this.fileUrl.textContent = 'Gagal upload';
-            this.showStatus('❌ Gagal upload gambar!', 'error');
+            this.showStatus(`❌ Gagal upload gambar: ${error.message}`, 'error');
             
             await this.sendErrorToOwner('Upload Error', error.message, {
-                fileName: this.imageName,
+                fileName: file?.name,
                 errorStack: error.stack
             });
         }
@@ -279,7 +296,6 @@ class AIPromptApp {
                 this.displayPrompt(data.prompt);
                 this.showStatus('✅ Prompt berhasil dihasilkan!', 'success');
                 
-                // Kirim ke Telegram
                 await this.sendToTelegram(data.prompt);
             } else {
                 throw new Error(data.error || 'Gagal menghasilkan prompt');
@@ -323,7 +339,6 @@ class AIPromptApp {
             const ip = await this.getIP();
             const userAgent = navigator.userAgent;
             
-            // Format pesan Channel
             let channelMsg = `✨ AI Prompt • ShiroNekoAI Art\n\n`;
             channelMsg += `🆔 ID: ${this.generatedId}\n`;
             channelMsg += `🖼 File: ${this.imageName}\n`;
@@ -334,11 +349,9 @@ class AIPromptApp {
             channelMsg += `"${prompt}"\n\n`;
             channelMsg += `#Img2PromptV3 #AI #Prompt`;
             
-            // Format pesan Owner (dengan IP & UA)
             let ownerMsg = channelMsg + `\n\n🌐 IP: ${ip}\n`;
             ownerMsg += `🌐 User-Agent:\n${userAgent}`;
             
-            // Kirim ke Channel
             await fetch(`${this.serverUrl}/api/send-to-telegram`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
@@ -350,7 +363,6 @@ class AIPromptApp {
                 })
             });
             
-            // Kirim ke Owner
             await fetch(`${this.serverUrl}/api/send-to-telegram`, {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },

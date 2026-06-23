@@ -125,8 +125,8 @@ vercel --prod
 Jika Anda menyukai project ini, dukung kami melalui:
 
 Platform Link
-💰 Saweria Klik di sini
-💰 Trakteer Klik di sini
+💰 Saweria <a href="https://saweria.co/ホロライブ" target="_blank"><b>Klik di sini</b></a>
+💰 Trakteer <a href="https://trakteer.id/ホロライブ/gift" target="_blank"><b>Klik di sini</b></a>
 
 ---
 
@@ -134,8 +134,9 @@ Platform Link
 
 Ikuti kami untuk update terbaru:
 
-· 💬 WhatsApp: Klik di sini
-· ✈️ Telegram: Klik di sini
+Platform Link
+💬 WhatsApp <a href="https://whatsapp.com/channel/0029Vb8MbnkGufJ53EsFnS3l" target="_blank"><b>Klik di sini</b></a>
+✈️ Telegram <a href="https://t.me/HasilPromptAI" target="_blank"><b>Klik di sini</b></a>
 
 ---
 

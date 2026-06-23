@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>AI Prompt • ShiroNekoAI Art</title>
+    <link rel="icon" href="https://ar-hosting.pages.dev/1782188958068.png" type="image/jpeg">
+    <meta name="description" content="AI Prompt Generator - Ubah gambar menjadi prompt AI dengan teknologi canggih. Dukung kreativitas Anda dengan ShiroNekoAI Art.">
+    <meta name="theme-color" content="#6C3CE1">
+    <meta property="og:title" content="AI Prompt • ShiroNekoAI Art">
+    <meta property="og:description" content="Ubah gambar menjadi prompt AI dengan mudah dan cepat.">
+    <meta property="og:image" content="https://ar-hosting.pages.dev/1781948213401.jpg">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="menu-overlay" id="menuOverlay"></div>
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <img src="https://ar-hosting.pages.dev/1781948213401.jpg" alt="Logo" class="sidebar-logo">
+            <h2>AI Prompt</h2>
+            <p>ShiroNekoAI Art</p>
+            <button class="close-menu" id="closeMenu">✕</button>
+        </div>
+        <div class="sidebar-content">
+            <a href="#" class="menu-item" id="menuAbout">
+                <span>📖</span> Tentang Website
+            </a>
+            <a href="#" class="menu-item" id="menuDonate">
+                <span>💖</span> Donate
+            </a>
+            <a href="#" class="menu-item" id="menuUpdate">
+                <span>📢</span> Informasi Update
+            </a>
+            <a href="#" class="menu-item" id="menuChannel">
+                <span>📱</span> Channel Official
+            </a>
+            <a href="#" class="menu-item" id="menuSource">
+               <span>📦</span> Source Code AI Prompt
+            </a>
+        </div>
+        <div class="sidebar-footer">
+            <p>© AI Prompt | Copyright ShiroNeko 2026</p>
+        </div>
+    </div>
+    
+    <div class="container">
+
+        <header class="header">
+            <div class="header-left">
+                <img src="https://ar-hosting.pages.dev/1781948213401.jpg" alt="Logo" class="logo-icon">
+                <div class="header-title">
+                    <h1>AI Prompt</h1>
+                    <span class="subtitle">ShiroNekoAI Art</span>
+                </div>
+            </div>
+            <button class="menu-toggle" id="menuToggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </header>
+
+        <div class="card">
+            <div class="upload-area" id="uploadArea">
+                <div class="upload-icon">🖼️</div>
+                <p>Unggah gambar untuk generate prompt</p>
+                <p class="small">Drag & drop atau klik untuk memilih file</p>
+                
+                <input type="file" id="fileInput" accept="image/*">
+            </div>
+
+            <div id="previewContainer" class="preview-container">
+                <div class="preview-placeholder">
+                    <span>📸</span>
+                    <p>Belum ada gambar</p>
+                </div>
+            </div>
+
+            <div class="button-group">
+                <button id="generateBtn" class="btn btn-primary" disabled>
+                    <span id="generateText">⚡ Generate Prompt</span>
+                    <div id="loadingSpinner" class="spinner hidden"></div>
+                </button>
+                <button id="clearPhotoBtn" class="btn btn-secondary">🗑️ Hapus Foto</button>
+                <button id="clearPromptBtn" class="btn btn-secondary">📝 Hapus Prompt</button>
+                <button id="clearAllBtn" class="btn btn-danger">🧹 Clear All</button>
+            </div>
+
+            <div id="statusMessage" class="status-message"></div>
+
+            <div id="resultArea" class="result-area hidden">
+                <div class="result-header">
+                    <h3>📝 Hasil Prompt</h3>
+                    <button id="copyPromptBtn" class="btn-copy">📋 Copy</button>
+                </div>
+                <div class="prompt-result" id="promptResult">
+                    <p class="loading-text">⏳ Menghasilkan prompt...</p>
+                </div>
+            </div>
+
+            <div class="upload-info" id="uploadInfo">
+                <div class="info-item">
+                    <span>📁 Nama:</span>
+                    <span id="fileName">-</span>
+                </div>
+                <div class="info-item">
+                    <span>📏 Size:</span>
+                    <span id="fileSize">-</span>
+                </div>
+                <div class="info-item">
+                    <span>📎 URL:</span>
+                    <span id="fileUrl">-</span>
+                </div>
+                <div class="info-item">
+                    <span>🆔 ID:</span>
+                    <span id="fileId">-</span>
+                </div>
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>© AI Prompt | Copyright ShiroNeko 2026</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="aboutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📖 Tentang Website</h2>
+                <button class="modal-close" id="closeAbout">✕</button>
+            </div>
+            <div class="modal-body">
+                <p><strong>AI Prompt • ShiroNekoAI Art</strong></p>
+                <p>Website ini menggunakan teknologi AI untuk mengubah gambar menjadi prompt yang dapat digunakan untuk berbagai keperluan, seperti:</p>
+                <ul>
+                    <li>🎨 Generate prompt untuk AI Art</li>
+                    <li>📝 Analisis konten gambar</li>
+                    <li>💡 Inspirasi kreatif</li>
+                    <li>🔍 Deskripsi gambar otomatis</li>
+                </ul>
+                <p style="margin-top: 12px;">Dibangun dengan <strong>❤️</strong> oleh ShiroNeko untuk membantu kreativitas Anda.</p>
+                <p style="margin-top: 8px; font-size: 13px; color: #888;">Version 2.0 | Update: Juni 2026</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="donateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>💖 Donate</h2>
+                <button class="modal-close" id="closeDonate">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Dukung kami untuk terus mengembangkan AI Prompt • ShiroNekoAI Art!</p>
+                <p style="margin-top: 12px;">Kirim donasi melalui:</p>
+                <a href="https://saweria.co/ホロライブ" target="_blank" class="donate-btn">
+                    💰 Saweria
+                </a>
+                <a href="https://trakteer.id/ホロライブ/gift" target="_blank" class="donate-btn">
+                   💰 Trakteer
+                </a>
+                <p style="margin-top: 16px; font-size: 13px; color: #888;">Terima kasih atas dukungan Anda! 🙏</p>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="updateModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📢 Informasi Update</h2>
+                <button class="modal-close" id="closeUpdate">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Dapatkan informasi update terbaru melalui channel WhatsApp kami:</p>
+                <a href="https://whatsapp.com/channel/0029Vb8MbnkGufJ53EsFnS3l" target="_blank" class="update-btn">
+                    📱 Channel WhatsApp
+                </a>
+                <div style="margin-top: 16px; padding: 12px; background: rgba(255,255,255,0.05); border-radius: 8px;">
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Update terbaru:</p>
+                    <ul style="font-size: 13px; color: rgba(255,255,255,0.5); padding-left: 20px;">
+                        <li>✅ Versi 2.0 - Interface baru</li>
+                        <li>✅ Peningkatan kecepatan AI</li>
+                        <li>✅ Support lebih banyak format</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="channelModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>📱 Channel Official</h2>
+                <button class="modal-close" id="closeChannel">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>Ikuti channel official kami untuk mendapatkan update dan informasi terbaru:</p>
+                <div class="channel-list">
+                    <a href="https://whatsapp.com/channel/0029Vb8MbnkGufJ53EsFnS3l" target="_blank" class="channel-btn whatsapp">
+                        💬 WhatsApp
+                    </a>
+                    <a href="https://t.me/HasilPromptAI" target="_blank" class="channel-btn telegram">
+                        ✈️ Telegram
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

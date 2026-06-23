@@ -79,39 +79,6 @@ AI-Prompt/
 
 ---
 
-## 🔧 Instalasi & Penggunaan
-
-### Local Development
-
-```bash
-# Clone repository
-git clone https://github.com/VionzNimeComp/AI-Prompt.git
-
-# Masuk ke folder
-cd AI-Prompt
-
-# Install dependencies
-npm install
-
-# Jalankan server
-node server.js
-
-# Buka di browser
-http://localhost:3000
-```
-
-Deploy ke Vercel
-
-```bash
-# Install Vercel CLI
-npm install -g vercel
-
-# Deploy
-vercel --prod
-```
-
----
-
 📸 Preview
 
 <p align="center">

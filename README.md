@@ -115,7 +115,7 @@ vercel --prod
 📸 Preview
 
 <p align="center">
-  <img src="https://ar-hosting.pages.dev/1782189668833.png" alt="Preview" width="80%">
+  <img src="https://ar-hosting.pages.dev/1782190218929.jpg" alt="Preview" width="80%">
 </p>
 
 ---

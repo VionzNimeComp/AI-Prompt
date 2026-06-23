@@ -10,7 +10,6 @@
 
 <p align="center">
   <img src="https://img.shields.io/badge/version-2.0-blue?style=for-the-badge&logo=vercel" alt="Version">
-  <img src="https://img.shields.io/badge/Node.js-18.x-green?style=for-the-badge&logo=node.js" alt="Node.js">
   <img src="https://img.shields.io/badge/license-MIT-purple?style=for-the-badge" alt="License">
   <img src="https://img.shields.io/badge/status-active-success?style=for-the-badge" alt="Status">
 </p>
@@ -58,7 +57,6 @@ Prompt akan muncul di bawah, klik **"📋 Copy"** untuk menyalinnya.
   <img src="https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white" alt="HTML5">
   <img src="https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white" alt="CSS3">
   <img src="https://img.shields.io/badge/JavaScript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black" alt="JavaScript">
-  <img src="https://img.shields.io/badge/Node.js-339933?style=for-the-badge&logo=nodedotjs&logoColor=white" alt="Node.js">
   <img src="https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white" alt="Vercel">
 </p>
 

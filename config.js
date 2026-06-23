@@ -1,16 +1,24 @@
-const TELEGRAM_CONFIG = {
+// ============================================
+// KONFIGURASI TELEGRAM BOT
+// ============================================
 
-    botToken: '8853576614:AAESDzoXFf1JGfZc02AhR18pIF8yusy1rBM',
-    channelId: '-1004422931840',
+const TELEGRAM_CONFIG = {
+    // Token Bot dari @BotFather
+    botToken: '8727885486:AAE1cjgW03D49rWTqNDM0kWgR1ZI0JhRYmM',
+    
+    // Chat ID Channel/Group
+    channelId: '-1003700985529',
+    
+    // Chat ID Owner (GANTI DENGAN ID TELEGRAM ANDA)
     ownerId: '2056834184',
+    
+    // URL API Telegram
     apiUrl: 'https://api.telegram.org/bot'
 };
 
-const API_CONFIG = {
-
-    img2prompt: 'https://api.ikyyxd.my.id/tools/img2prompt?url=',
-    uploadUrl: 'https://athars.space/upload.php'
-};
+// ============================================
+// VALIDASI KONFIGURASI
+// ============================================
 
 function validateConfig() {
     const errors = [];
@@ -24,20 +32,20 @@ function validateConfig() {
     }
     
     if (!TELEGRAM_CONFIG.ownerId || TELEGRAM_CONFIG.ownerId === 'YOUR_OWNER_ID_HERE') {
-        errors.push('❌ Owner ID belum diisi!');
+        errors.push('❌ Owner ID belum diisi! (untuk error log)');
     }
     
     if (errors.length > 0) {
-        console.error('⚠️ Konfigurasi Telegram tidak lengkap:');
+        console.error('⚠️ Konfigurasi tidak lengkap:');
         errors.forEach(err => console.error(err));
         return false;
     }
     
     console.log('✅ Konfigurasi valid!');
-    console.log('📡 API Endpoint:', API_CONFIG.img2prompt);
     return true;
 }
 
+// Export
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { TELEGRAM_CONFIG, API_CONFIG, validateConfig };
+    module.exports = { TELEGRAM_CONFIG, validateConfig };
 }
